@@ -9,6 +9,7 @@
         "knex:seed:points": "knex --knexfile knexfile.ts seed:run --specific=create_ecoponto_points.ts",
         "knex:seed:pointsitems": "knex --knexfile knexfile.ts seed:run --specific=create_ecoponto_points_items.ts",
         "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
+        "knex:seed":"knex --knexfile knexfile.ts seed:run",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
