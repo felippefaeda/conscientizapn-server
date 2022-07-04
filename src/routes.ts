@@ -1,4 +1,5 @@
 import express from 'express';
+import knex from './database/connection';
 
 import multer from 'multer';
 import multerConfig from './config/multer';
@@ -18,8 +19,13 @@ const ocorrenciasController = new OcorrenciasController();
 
 routes.get('/items', itemsController.index);
 routes.get('/coletas/:bairro', coletasController.show);
+
+
+routes.get('/points', pointsController.create);
 routes.get('/points', pointsController.index);
 routes.get('/points/:id', pointsController.show);
+
+
 routes.post('/ocorrencias', ocorrenciasController.create);
 routes.get('/ocorrencias', ocorrenciasController.show);
 routes.get('/ocorrencias/:id', ocorrenciasController.showId);
