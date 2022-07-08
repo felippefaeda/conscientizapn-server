@@ -21,7 +21,7 @@ routes.get('/items', itemsController.index);
 routes.get('/coletas/:bairro', coletasController.show);
 
 
-routes.get('/points', pointsController.create);
+routes.post('/points', pointsController.create);
 routes.get('/points', pointsController.index);
 routes.get('/points/:id', pointsController.show);
 
