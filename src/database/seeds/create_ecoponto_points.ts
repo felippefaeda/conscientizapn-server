@@ -10,7 +10,7 @@ export async function seed(knex:Knex) {
         {id: 6, imagem: 'mercado-guarapiranga', nome: 'Supermercados Guarapiranga', email: 'contato@guarapirangasupermercado.com.br', whatsapp: '3138171727', latitude: -20.405975725901100 , longitude: -42.9010085222686, endereco: 'Travessa Edith Maria Silva, nº 38 / Triângulo' , descricao: 'Segunda a Sábado: 7:30hrs às 20hrs / Domingo: 7:30hrs às 13 hrs'},
         {id: 7, imagem: 'poupy-esplanada', nome: 'Supermercados POUPY', email: 'poupy@supermercadospoupy.com.br', whatsapp: '3138812906', latitude: -20.419351454141100, longitude: -42.911168718421700, endereco: 'Rua Carlos Gomes, nº 172 / Esplanada' , descricao: 'Segunda a Sexta: 8hrs às 21hrs / Sabado a Domingo: 8hrs às 12 hrs'},
         {id: 8, imagem: 'poupy-santoantonio', nome: 'Supermercados POUPY', email: 'poupy@supermercadospoupy.com.br', whatsapp: '3138198250', latitude: -20.40760569014690, longitude: -42.894244073090000, endereco: 'Rua Santo Antônio, nº 87 / Santo Antônio I' , descricao: 'Segunda a Sábado: 8hrs às 21hrs / Domingo: 8hrs às 13 hrs'},
-        {id: 9, imagem: 'semam', nome: 'Secretaria de Meio Ambiente', email: 'semam@pontenova.mg.gov.br', whatsapp: '3138171896', latitude: -20.401688193068900, longitude: -42.88789110240260, endereco: 'Ave. Mario Martins de Freitas, nº 401 / Guarapiranga' , descricao: 'Segunda a Sexta: 8hrs às 11hrs - 13hrs às 16:30hrs'},
+        {id: 9, imagem: 'semam', nome: 'Secretaria de Meio Ambiente', email: 'semam@pontenova.mg.gov.br', whatsapp: '3138171896', latitude: -20.401688193068900, longitude: -42.88789110240260, endereco: 'Ave. Mario Martins de Freitas, nº 401 / Guarapiranga' , descricao: 'Segunda a Sexta: 8hrs às 11hrs - 13hrs às 16:30hrs'},  
         
     ]);
 }
