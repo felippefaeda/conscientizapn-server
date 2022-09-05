@@ -24,6 +24,10 @@ routes.get('/coletas/:bairro', coletasController.show);
 routes.post('/points', pointsController.create);
 routes.get('/points', pointsController.index);
 routes.get('/points/:id', pointsController.show);
+routes.get('/all-points', pointsController.search);
+routes.delete('/points/:id', pointsController.delete);
+routes.put('/points', pointsController.update);
+
 
 
 routes.post('/ocorrencias', ocorrenciasController.create);
