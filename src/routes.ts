@@ -46,13 +46,6 @@ routes.post("/upload", multer(multerConfig).single("file"), async (request, resp
     const key = request.file?.filename;
     const url = request.file?.path;
 
-    /*const post = await Post.create({
-        name,
-        size,
-        key,
-        url
-    });*/
-
     return response.json(request.file);
 });
 
