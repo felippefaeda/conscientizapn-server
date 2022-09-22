@@ -24,6 +24,28 @@ class ColetasController {
         
         return response.json(coletas);        
     }
+
+    async create(request: Request, response: Response) {
+        const {
+            tipo,
+            bairro,
+            dia_semana,
+            periodo,
+            horario,
+        } = request.body;
+
+        const trx = await knex.transaction();
+
+        const coleta = {
+            tipo,
+            bairro,
+            dia_semana,
+            periodo,
+            horario,
+        };
+
+        return response.json({coleta});
+    }
 }
 
 export default ColetasController;
