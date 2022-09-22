@@ -44,7 +44,18 @@ class ColetasController {
             horario,
         };
 
-        return response.json({coleta});
+        console.log(coleta);
+
+        const codigo = await trx('coletas').insert(coleta);
+
+        await trx.commit();
+
+        console.log(codigo);
+
+        return response.json({
+            codigo,
+            ...coleta,
+        })
     }
 }
 
