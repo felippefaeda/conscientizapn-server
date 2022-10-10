@@ -9,6 +9,8 @@ class ColetasController {
 
         let coletas;
 
+        console.log(bairro);
+
         if (dia_semana){
             coletas = await knex('coletas')
                 .where('coletas.bairro', String(bairro))
@@ -52,6 +54,18 @@ class ColetasController {
             codigo,
             ...coleta,
         })
+    }
+
+    async delete(request: Request, response: Response){
+        const { id } = request.params;
+
+        console.log(id);
+
+        try {
+            await knex('coletas').delete().where('codigo', id);
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 

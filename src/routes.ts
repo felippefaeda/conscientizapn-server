@@ -35,7 +35,8 @@ routes.get('/ocorrencias', ocorrenciasController.show);
 routes.get('/ocorrencias/:id', ocorrenciasController.showId);
 
 routes.post('/coleta', coletasController.create);
-routes.get('/coleta', coletasController.show);
+routes.get('/coleta/:bairro', coletasController.show);
+routes.delete('/coleta/:id', coletasController.delete);
 
 /* Implementação das rotas de upload das imagens */
 /*routes.get("/posts", async (request, response) => {
