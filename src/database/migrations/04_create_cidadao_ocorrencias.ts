@@ -10,6 +10,7 @@ export async function up(knex:Knex){
         table.string('nomeUsuario').notNullable();
         table.string('bairro').notNullable();
         table.string('rua').notNullable();
+        table.integer('status').notNullable();
     });
 }
 export async function down(knex:Knex){

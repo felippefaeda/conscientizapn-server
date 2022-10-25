@@ -4,18 +4,38 @@ import knex from "../database/connection";
 class OcorrenciasController{
 
     async search(request: Request, response: Response) {
-        const ocorrencias = await knex('ocorrencias').select('*');
+        const { bairro, status } = request.params;
+        let ocorrencias;
+
+        if(bairro == "Todos" && status == "Todos"){
+            ocorrencias = await knex('ocorrencias').select('*');
+        } else if(bairro != "Todos" && status == "Todos"){
+            ocorrencias = await knex('ocorrencias')
+                .select('*')
+                .where('bairro', bairro);
+        } else if(bairro == "Todos" && status != "Todos"){
+            ocorrencias = await knex('ocorrencias')
+                .select('*')
+                .where('status', status);
+        } else {
+            ocorrencias = await knex('ocorrencias').select('*')
+                .where('bairro', bairro)
+                .where('status', status);
+        }
 
         const serializedItems = ocorrencias.map((ocorrencia) => {
             return {
                 id: ocorrencia.id,
-                dataa: ocorrencia.dataa,
-                endereco: ocorrencia.endereco,
-                status: ocorrencia.status,
-                descricao: ocorrencia.descricao,
+                descricao: ocorrencia.descricao,   
+                foto: ocorrencia.foto,
                 latitude: ocorrencia.latitude,
                 longitude: ocorrencia.longitude,
-                foto: ocorrencia.foto
+                reportacoes: ocorrencia.reportacoes,
+                nomeUsuario: ocorrencia.nomeUsuario,
+                bairro: ocorrencia.bairro,
+                rua: ocorrencia.rua, 
+                status: ocorrencia.status,
+                data: ocorrencia.data
             };
         });
 
@@ -33,7 +53,6 @@ class OcorrenciasController{
             console.log(error);
         }
     }
-
 
     async create(request:Request, response: Response) {
         const {
@@ -106,49 +125,26 @@ class OcorrenciasController{
         const serializedOcorrencias ={
             ...ocorrencia
         }
+
+        console.log(serializedOcorrencias);
+        
         return response.json(serializedOcorrencias)
     }
-
 
     async update(request: Request, response: Response) {
         const {
             id,
-            dataa,
-            endereco,
-            status,
-            descricao,
-            latitude,
-            longitude,
-            foto
-
+            status
         } = request.body;
 
         const trx = await knex.transaction();
 
         const ocorrencia = {
             id,
-            dataa,
-            endereco,
-            status,
-            descricao,
-            latitude,
-            longitude,
-            foto
-           
+            status           
         };
 
         await trx('ocorrencias').where('id', id).update(ocorrencia);
-
-        // const pointItems = items.map((items_id: number) => {
-        //     return {
-        //         points_id: id,
-        //         items_id: items_id                
-        //     };
-        // });
-
-        // await trx('points_items').where('points_id', id).delete();
-
-        // await trx('points_items').insert(pointItems);
 
         await trx.commit();
 

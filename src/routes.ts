@@ -33,6 +33,8 @@ routes.put('/points', pointsController.update);
 routes.post('/ocorrencias', ocorrenciasController.create);
 routes.get('/ocorrencias', ocorrenciasController.show);
 routes.get('/ocorrencias/:id', ocorrenciasController.showId);
+routes.put('/ocorrencias/:id', ocorrenciasController.update);
+routes.get('/ocorrencias/:bairro/:status', ocorrenciasController.search);
 
 routes.post('/coleta', coletasController.create);
 routes.get('/coleta', coletasController.show);
